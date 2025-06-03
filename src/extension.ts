@@ -11,8 +11,8 @@
  * - C#
  * - C/C++
  * 
- * @author Your Name
- * @version 1.0.0
+ * @author Aaron Kazah
+ * @version 1.0.1
  */
 
 import * as vscode from 'vscode';
