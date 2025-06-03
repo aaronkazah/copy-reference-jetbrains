@@ -1,12 +1,12 @@
 {
-  "name": "copy-reference",
-  "displayName": "Copy Reference",
+  "name": "copy-reference-jetbrains",
+  "displayName": "Copy Reference JetBrains",
   "description": "JetBrains-style copy reference functionality for VS Code. Right-click any symbol to copy its full dot notation path.",
   "version": "1.0.0",
   "publisher": "aaronkazah",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aaronkazah/copy-reference-vscode.git"
+    "url": "https://github.com/aaronkazah/copy-reference-jetbrains.git"
   },
   "engines": {
     "vscode": "^1.74.0"
@@ -19,9 +19,21 @@
     "reference",
     "jetbrains",
     "intellij",
+    "pycharm",
+    "webstorm",
     "navigation",
     "path",
-    "symbol"
+    "symbol",
+    "django",
+    "fastapi",
+    "flask",
+    "asgi",
+    "wsgi",
+    "django-rest-framework",
+    "starlette",
+    "testing",
+    "unittest",
+    "pytest"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -47,7 +59,7 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "package": "vsce package",
+    "package": "vsce package --out releases/",
     "publish": "vsce publish"
   },
   "devDependencies": {
@@ -58,7 +70,7 @@
   "author": "Aaron Kazah",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aaronkazah/copy-reference-vscode/issues"
+    "url": "https://github.com/aaronkazah/copy-reference-jetbrains/issues"
   },
-  "homepage": "https://github.com/aaronkazah/copy-reference-vscode#readme"
+  "homepage": "https://github.com/aaronkazah/copy-reference-jetbrains#readme"
 }

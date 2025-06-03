@@ -1,16 +1,15 @@
-# Copy Reference for VS Code
+# Copy Reference JetBrains for VS Code
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/aaronkazah.copy-reference)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference)
-[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/aaronkazah.copy-reference)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference)
-[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/aaronkazah.copy-reference)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/aaronkazah.copy-reference-jetbrains)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference-jetbrains)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/aaronkazah.copy-reference-jetbrains)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference-jetbrains)
+[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/aaronkazah.copy-reference-jetbrains)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference-jetbrains)
 
 A professional VS Code extension that brings JetBrains-style "Copy Reference" functionality to Visual Studio Code. Right-click on any symbol (class, method, function, variable) to copy its full dot notation path to your clipboard.
 
-Perfect for Django development, testing workflows, and any scenario where you need precise symbol references.
 
 ## ✨ Features
 
-- **JetBrains-style copy reference**: Get the exact functionality you're used to from IntelliJ IDEA, PyCharm, etc.
+- **JetBrains-style copy reference**: Get the exact functionality you're used to from IntelliJ IDEA, PyCharm, WebStorm, etc.
 - **Multi-language support**: Works with Python, TypeScript, JavaScript, Java, C#, C++, and more
 - **Smart path detection**: Automatically detects modules, packages, namespaces, and file structures
 - **Django testing ready**: Perfect for generating test paths like `python manage.py test myapp.tests.test_models.TestClass.test_method`
@@ -21,16 +20,20 @@ Perfect for Django development, testing workflows, and any scenario where you ne
 
 ### Option 1: VS Code Marketplace (Recommended)
 
+The easiest way to install:
+
 1. **Open VS Code**
 2. **Go to Extensions** (Ctrl/Cmd + Shift + X)
-3. **Search for "Copy Reference"** by Aaron Kazah
+3. **Search for "Copy Reference JetBrains"** by Aaron Kazah
 4. **Click Install**
 
-[![Install from VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Install%20Extension-blue?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference)
+[![Install from VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Install%20Extension-blue?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference-jetbrains)
 
 ### Option 2: Manual Installation from GitHub
 
-1. **Download the latest VSIX file** from our [GitHub Releases](https://github.com/aaronkazah/copy-reference-vscode/releases) or directly: [copy-reference-1.0.0.vsix](https://github.com/aaronkazah/copy-reference-vscode/raw/main/releases/copy-reference-1.0.0.vsix)
+For early access or offline installation:
+
+1. **Download the latest VSIX file** from our [GitHub Releases](https://github.com/aaronkazah/copy-reference-jetbrains/releases) or directly: [copy-reference-jetbrains-1.0.0.vsix](https://github.com/aaronkazah/copy-reference-jetbrains/raw/main/releases/copy-reference-jetbrains-1.0.0.vsix)
 2. **Open VS Code**
 3. **Go to Extensions panel** (Ctrl/Cmd + Shift + X)
 4. **Click the "..." menu** in the Extensions panel
@@ -38,7 +41,17 @@ Perfect for Django development, testing workflows, and any scenario where you ne
 6. **Navigate to the downloaded `.vsix` file** and select it
 7. **Click Install**
 
-📋 **Need detailed installation help?** See our [Complete Installation Guide](INSTALLATION.md)
+### Troubleshooting Installation
+
+**Extension not appearing?**
+- Restart VS Code after installation
+- Check if the extension is enabled in the Extensions panel
+- Ensure you have a supported file open (Python, TypeScript, etc.)
+
+**Can't find "Copy Reference" in context menu?**
+- Make sure you're right-clicking on a symbol (class, method, function, variable)
+- Ensure the file has a supported language (check status bar)
+- Try clicking directly on the symbol name, not whitespace
 
 ## 📖 Usage
 
@@ -116,7 +129,7 @@ public class UserService {
 
 Found a bug or want to contribute? 
 
-1. Visit our [GitHub repository](https://github.com/aaronkazah/copy-reference-vscode)
+1. Visit our [GitHub repository](https://github.com/aaronkazah/copy-reference-jetbrains)
 2. Open an issue or submit a pull request
 3. Help make this extension even better!
 
@@ -128,6 +141,12 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 **Aaron Kazah** - [@aaronkazah](https://github.com/aaronkazah)
 
+*Former PyCharm enthusiast, now happily building VS Code extensions to bridge the gap!*
+
 ---
 
 ⭐ **If this extension helps your workflow, please consider giving it a star on GitHub!**
+
+🐛 **Found an issue?** [Report it here](https://github.com/aaronkazah/copy-reference-jetbrains/issues)
+
+📧 **Questions?** [Start a discussion](https://github.com/aaronkazah/copy-reference-jetbrains/discussions)
