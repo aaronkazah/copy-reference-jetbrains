@@ -33,7 +33,7 @@ The easiest way to install:
 
 For early access or offline installation:
 
-1. **Download the latest VSIX file** from our [GitHub Releases](https://github.com/aaronkazah/copy-reference-jetbrains/releases) or directly: [copy-reference-jetbrains-1.0.0.vsix](https://github.com/aaronkazah/copy-reference-jetbrains/raw/main/releases/copy-reference-jetbrains-1.0.0.vsix)
+1. **Download the latest VSIX file** from our [GitHub Releases](https://github.com/aaronkazah/copy-reference-jetbrains/releases) or directly: [copy-reference-jetbrains-1.0.1.vsix](https://github.com/aaronkazah/copy-reference-jetbrains/raw/main/releases/copy-reference-jetbrains-1.0.1.vsix)
 2. **Open VS Code**
 3. **Go to Extensions panel** (Ctrl/Cmd + Shift + X)
 4. **Click the "..." menu** in the Extensions panel
