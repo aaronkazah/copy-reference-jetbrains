@@ -141,7 +141,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 **Aaron Kazah** - [@aaronkazah](https://github.com/aaronkazah)
 
-*Former PyCharm enthusiast, now happily building VS Code extensions to bridge the gap!*
+*Former PyCharm enthusiast*
 
 ---
 
