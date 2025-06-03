@@ -1,8 +1,6 @@
 # Copy Reference JetBrains for VS Code
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/aaronkazah.copy-reference-jetbrains)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference-jetbrains)
-[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/aaronkazah.copy-reference-jetbrains)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference-jetbrains)
-[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/aaronkazah.copy-reference-jetbrains)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference-jetbrains)
 
 A professional VS Code extension that brings JetBrains-style "Copy Reference" functionality to Visual Studio Code. Right-click on any symbol (class, method, function, variable) to copy its full dot notation path to your clipboard.
 
