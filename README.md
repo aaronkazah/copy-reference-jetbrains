@@ -19,10 +19,26 @@ Perfect for Django development, testing workflows, and any scenario where you ne
 
 ## 🚀 Installation
 
-1. Open VS Code
-2. Go to Extensions (Ctrl/Cmd + Shift + X)
-3. Search for "Copy Reference"
-4. Click Install
+### Option 1: VS Code Marketplace (Recommended)
+
+1. **Open VS Code**
+2. **Go to Extensions** (Ctrl/Cmd + Shift + X)
+3. **Search for "Copy Reference"** by Aaron Kazah
+4. **Click Install**
+
+[![Install from VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Install%20Extension-blue?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=aaronkazah.copy-reference)
+
+### Option 2: Manual Installation from GitHub
+
+1. **Download the latest VSIX file** from our [GitHub Releases](https://github.com/aaronkazah/copy-reference-vscode/releases) or directly: [copy-reference-1.0.0.vsix](https://github.com/aaronkazah/copy-reference-vscode/raw/main/releases/copy-reference-1.0.0.vsix)
+2. **Open VS Code**
+3. **Go to Extensions panel** (Ctrl/Cmd + Shift + X)
+4. **Click the "..." menu** in the Extensions panel
+5. **Select "Install from VSIX..."**
+6. **Navigate to the downloaded `.vsix` file** and select it
+7. **Click Install**
+
+📋 **Need detailed installation help?** See our [Complete Installation Guide](INSTALLATION.md)
 
 ## 📖 Usage
 
