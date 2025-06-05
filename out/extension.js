@@ -12,8 +12,8 @@
  * - C#
  * - C/C++
  *
- * @author Your Name
- * @version 1.0.0
+ * @author Aaron Kazah
+ * @version 1.0.2
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
@@ -40,6 +40,8 @@ async function handleCopyReference() {
     }
     const document = editor.document;
     const position = editor.selection.active;
+    // Check if this is a diff view or other special context
+    const isDiffView = document.uri.scheme === 'git' || document.uri.scheme === 'file' && document.uri.path.includes('.git');
     try {
         const reference = await generateFullReference(document, position);
         if (reference) {
@@ -47,6 +49,17 @@ async function handleCopyReference() {
             vscode.window.showInformationMessage(`Copied: ${reference}`);
         }
         else {
+            // Enhanced fallback for diff views and special contexts
+            const wordRange = document.getWordRangeAtPosition(position);
+            if (wordRange) {
+                const word = document.getText(wordRange);
+                const fallbackRef = buildSimpleFallbackReference(document, word);
+                if (fallbackRef) {
+                    await vscode.env.clipboard.writeText(fallbackRef);
+                    vscode.window.showInformationMessage(`Copied (fallback): ${fallbackRef}`);
+                    return;
+                }
+            }
             vscode.window.showWarningMessage('Could not determine reference path for this symbol');
         }
     }
@@ -67,15 +80,23 @@ async function generateFullReference(document, position) {
     if (!wordRange) {
         return null;
     }
+    const word = document.getText(wordRange);
     // Get document symbols to build the hierarchy
     const symbols = await getDocumentSymbols(document);
-    if (!symbols) {
-        return null;
+    if (!symbols || symbols.length === 0) {
+        // Fallback: just return the word with file context
+        return buildFallbackReference(document, word);
     }
     // Find the symbol hierarchy path
     const symbolPath = findSymbolHierarchy(symbols, position);
     if (symbolPath.length === 0) {
-        return null;
+        // Try to find any symbol that matches the word at cursor
+        const matchingSymbol = findSymbolByName(symbols, word);
+        if (matchingSymbol) {
+            return buildCompleteReference(document, [matchingSymbol]);
+        }
+        // Final fallback: just the word with namespace
+        return buildFallbackReference(document, word);
     }
     // Build and return the complete reference
     return buildCompleteReference(document, symbolPath);
@@ -123,6 +144,27 @@ function findSymbolHierarchy(symbols, position) {
     }
     searchSymbols(symbols);
     return hierarchy;
+}
+/**
+ * Finds a symbol by name in the symbol tree
+ * @param symbols - Array of document symbols
+ * @param name - The symbol name to find
+ * @returns The matching symbol or null
+ */
+function findSymbolByName(symbols, name) {
+    for (const symbol of symbols) {
+        if (symbol.name === name) {
+            return symbol;
+        }
+        // Search children recursively
+        if (symbol.children && symbol.children.length > 0) {
+            const childMatch = findSymbolByName(symbol.children, name);
+            if (childMatch) {
+                return childMatch;
+            }
+        }
+    }
+    return null;
 }
 /**
  * Builds the complete reference string from document and symbol hierarchy
@@ -245,6 +287,48 @@ function getLanguageSeparator(languageId) {
         default:
             return '.';
     }
+}
+/**
+ * Builds a simple fallback reference for diff views and special contexts
+ * @param document - The text document
+ * @param word - The word at cursor position
+ * @returns Simple reference or null
+ */
+function buildSimpleFallbackReference(document, word) {
+    if (!word || word.trim().length === 0) {
+        return null;
+    }
+    // For diff views and special contexts, try to build a basic reference
+    const fileName = getFileNameWithoutExtension(document.uri);
+    const languageId = document.languageId;
+    // Try to extract some context from the file path
+    const filePath = document.uri.path;
+    const pathParts = filePath.split('/').filter(part => part && !part.includes('.'));
+    // Build a simple reference based on file structure
+    if (pathParts.length > 1 && languageId === 'python') {
+        // For Python, try to build module.class.method style
+        const relevantParts = pathParts.slice(-3); // Take last 3 parts of path
+        return `${relevantParts.join('.')}.${word}`;
+    }
+    // Generic fallback
+    const separator = getLanguageSeparator(languageId);
+    return `${fileName}${separator}${word}`;
+}
+/**
+ * Builds a fallback reference when symbols aren't available
+ * @param document - The text document
+ * @param word - The word at cursor position
+ * @returns Fallback reference string
+ */
+function buildFallbackReference(document, word) {
+    const fileName = getFileNameWithoutExtension(document.uri);
+    const separator = getLanguageSeparator(document.languageId);
+    // Try to get some context from file path for Python
+    if (document.languageId === 'python') {
+        const pythonPath = buildPythonModulePath(document, fileName);
+        return `${pythonPath}.${word}`;
+    }
+    return `${fileName}${separator}${word}`;
 }
 /**
  * Deactivates the extension
