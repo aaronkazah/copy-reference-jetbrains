@@ -2,7 +2,7 @@
   "name": "copy-reference-jetbrains",
   "displayName": "Copy Reference JetBrains",
   "description": "JetBrains-style copy reference functionality for VS Code. Right-click any symbol to copy its full dot notation path.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "aaronkazah",
   "repository": {
     "type": "git",

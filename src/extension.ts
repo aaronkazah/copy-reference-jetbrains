@@ -12,7 +12,7 @@
  * - C/C++
  * 
  * @author Aaron Kazah
- * @version 1.0.2
+ * @version 1.0.3
  */
 
 import * as vscode from 'vscode';
@@ -333,22 +333,16 @@ function buildSimpleFallbackReference(document: vscode.TextDocument, word: strin
         return null;
     }
     
-    // For diff views and special contexts, try to build a basic reference
-    const fileName = getFileNameWithoutExtension(document.uri);
     const languageId = document.languageId;
     
-    // Try to extract some context from the file path
-    const filePath = document.uri.path;
-    const pathParts = filePath.split('/').filter(part => part && !part.includes('.'));
-    
-    // Build a simple reference based on file structure
-    if (pathParts.length > 1 && languageId === 'python') {
-        // For Python, try to build module.class.method style
-        const relevantParts = pathParts.slice(-3); // Take last 3 parts of path
-        return `${relevantParts.join('.')}.${word}`;
+    // For Python, build the full module path like the main logic
+    if (languageId === 'python') {
+        const pythonPath = buildPythonModulePath(document, getFileNameWithoutExtension(document.uri));
+        return `${pythonPath}.${word}`;
     }
     
-    // Generic fallback
+    // For other languages, use basic fallback
+    const fileName = getFileNameWithoutExtension(document.uri);
     const separator = getLanguageSeparator(languageId);
     return `${fileName}${separator}${word}`;
 }

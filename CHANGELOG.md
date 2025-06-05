@@ -2,6 +2,20 @@
 
 All notable changes to the "Copy Reference" extension will be documented in this file.
 
+## [1.0.3] - 2025-06-05
+
+### Fixed
+- Improved diff view support with proper full module path generation
+- Enhanced fallback logic for special VS Code contexts (git diff, merge views)
+- Fixed issue where diff mode only copied partial paths (e.g., test_file instead of apps.module.tests.test_file)
+
+## [1.0.2] - 2025-06-05
+
+### Improved
+- Enhanced symbol detection and fallback mechanisms
+- Better handling of special VS Code contexts
+- Improved error handling and user feedback
+
 ## [1.0.0] - 2025-06-03
 
 ### Added
